@@ -1,0 +1,12 @@
+@import "/src/app/shared/styles/variables";
+
+.app-header {
+  background-color: $aquablue;
+  height: 64px;
+
+  & svg {
+    fill: $white;
+    height: 32px;
+    padding: $unit * 2;
+  }
+}
