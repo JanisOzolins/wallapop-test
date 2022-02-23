@@ -10,9 +10,10 @@ import { StoreModule } from '@ngrx/store';
 import { itemsReducer } from './store/items.reducer';
 import { AppEffects } from './store/effects';
 import { EffectsModule } from '@ngrx/effects';
+import { ItemSummaryComponent } from './components/item-summary/item-summary.component';
 
 @NgModule({
-  declarations: [AppComponent, HomepageComponent],
+  declarations: [AppComponent, HomepageComponent, ItemSummaryComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

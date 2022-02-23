@@ -1,1 +1,8 @@
-<div class="container">Hello!</div>
+<div class="container">
+  <div class="list-items">
+    <app-item-summary
+      *ngFor="let item of items$ | async"
+      [item]="item"
+    ></app-item-summary>
+  </div>
+</div>
