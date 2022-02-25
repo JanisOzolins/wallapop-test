@@ -5,7 +5,7 @@ import { debounceTime, distinctUntilChanged, Observable } from 'rxjs';
 import { AppState } from '../store/app.state';
 import { Store } from '@ngrx/store';
 import { Item } from '../models/item.interface';
-import { filterItemsByKeywordAction } from '../store/actions';
+import { filterItemsByKeywordAction, setSortOrder } from '../store/actions';
 import { selectFilteredItems, selectItems } from '../store/selectors';
 
 @Component({
@@ -15,19 +15,20 @@ import { selectFilteredItems, selectItems } from '../store/selectors';
 })
 export class HomepageComponent implements OnInit {
   public searchValue = 'Test';
-  public searchForm: FormGroup;
+  public itemFiltersForm: FormGroup;
   public items$: Observable<Item[]>;
 
   public showItemsCount = 5;
 
   constructor(private store: Store<AppState>) {
-    this.searchForm = new FormGroup({
+    this.itemFiltersForm = new FormGroup({
       searchBox: new FormControl(''),
+      sortBy: new FormControl('title-asc'),
     });
 
     this.items$ = this.store.select(selectFilteredItems);
 
-    this.searchForm
+    this.itemFiltersForm
       .get('searchBox')
       ?.valueChanges.pipe(debounceTime(400), distinctUntilChanged())
       .subscribe((searchValue) => {
@@ -37,6 +38,10 @@ export class HomepageComponent implements OnInit {
           filterItemsByKeywordAction({ keyword: searchValue })
         );
       });
+
+    this.itemFiltersForm.get('sortBy')?.valueChanges.subscribe((sortOrder) => {
+      this.store.dispatch(setSortOrder({ sortOrder }));
+    });
   }
 
   ngOnInit(): void {}

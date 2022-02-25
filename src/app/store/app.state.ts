@@ -8,6 +8,7 @@ export interface AppState {
 export interface ItemsState {
   items: Array<Item>;
   searchTerm: string;
+  sortOrder: string;
 }
 
 export const defaultStoreState: AppState = {

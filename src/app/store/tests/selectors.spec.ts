@@ -7,6 +7,7 @@ describe('selectors', () => {
     items: {
       items: itemsList,
       searchTerm: null,
+      sortOrder: 'title-asc',
     },
   };
 

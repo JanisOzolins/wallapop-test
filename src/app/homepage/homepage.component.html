@@ -1,6 +1,6 @@
 <div class="container">
   <div class="list-items">
-    <form [formGroup]="searchForm">
+    <form [formGroup]="itemFiltersForm">
       <input
         type="text"
         [placeholder]="'Search items'"
@@ -8,6 +8,17 @@
         formControlName="searchBox"
         class="search-box"
       />
+
+      <select formControlName="sortBy">
+        <option [ngValue]="'title-asc'">Title (A-Z)</option>
+        <option [ngValue]="'title-desc'">Title (Z-A)</option>
+        <option [ngValue]="'description-asc'">Description (A-Z)</option>
+        <option [ngValue]="'description-desc'">Description (Z-A)</option>
+        <option [ngValue]="'price-asc'">Price (Ascending)</option>
+        <option [ngValue]="'price-desc'">Price (Descending)</option>
+        <option [ngValue]="'email-asc'">Email (A-Z)</option>
+        <option [ngValue]="'email-desc'">Email (Z-A)</option>
+      </select>
     </form>
 
     <ng-container *ngFor="let item of items$ | async; let i = index">
@@ -17,7 +28,11 @@
       ></app-item-summary>
     </ng-container>
 
-    <button (click)="showMoreItems()" class="show-more-items-btn">
+    <button
+      *ngIf="(items$ | async).length > showItemsCount"
+      (click)="showMoreItems()"
+      class="show-more-items-btn"
+    >
       Show more
     </button>
   </div>

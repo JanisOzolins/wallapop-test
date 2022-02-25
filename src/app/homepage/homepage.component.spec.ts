@@ -50,7 +50,7 @@ describe('HomepageComponent', () => {
   it('should dispatch an action with search term once value has been entered', fakeAsync(() => {
     const dispatchSpy = spyOn(store, 'dispatch');
 
-    component.searchForm.controls['searchBox'].setValue('something');
+    component.itemFiltersForm.controls['searchBox'].setValue('something');
 
     tick(400);
 
