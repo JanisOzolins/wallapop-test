@@ -1,12 +1,18 @@
+import { HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { AppComponent } from './app.component';
+import { ItemsServiceService } from './services/items.service';
+import { initialState } from './store/reducer';
 
 describe('AppComponent', () => {
+  let store: MockStore;
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [RouterTestingModule],
       declarations: [AppComponent],
+      providers: [provideMockStore({ initialState }), ItemsServiceService],
     }).compileComponents();
   });
 
@@ -20,14 +26,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('wallapop-test');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain(
-      'wallapop-test app is running!'
-    );
   });
 });
