@@ -1,11 +1,12 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import * as _ from 'lodash';
-import { Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, Observable } from 'rxjs';
 import { AppState } from '../store/app.state';
 import { Store } from '@ngrx/store';
-import { selectItems } from '../store/selectors';
 import { Item } from '../models/item.interface';
+import { filterItemsByKeywordAction } from '../store/actions';
+import { selectFilteredItems, selectItems } from '../store/selectors';
 
 @Component({
   templateUrl: './homepage.component.html',
@@ -22,7 +23,18 @@ export class HomepageComponent implements OnInit {
       searchBox: new FormControl(''),
     });
 
-    this.items$ = this.store.select(selectItems);
+    this.items$ = this.store.select(selectFilteredItems);
+
+    this.searchForm
+      .get('searchBox')
+      ?.valueChanges.pipe(debounceTime(400), distinctUntilChanged())
+      .subscribe((searchValue) => {
+        this.searchValue = searchValue;
+
+        this.store.dispatch(
+          filterItemsByKeywordAction({ keyword: searchValue })
+        );
+      });
   }
 
   ngOnInit(): void {}

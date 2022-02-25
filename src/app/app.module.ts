@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { itemsReducer } from './store/items.reducer';
+import { itemsReducer } from './store/reducer';
 import { AppEffects } from './store/effects';
 import { EffectsModule } from '@ngrx/effects';
 import { ItemSummaryComponent } from './components/item-summary/item-summary.component';

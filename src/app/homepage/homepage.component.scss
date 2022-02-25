@@ -10,7 +10,14 @@
 }
 
 .list-items {
-  display: block;
-  margin: 0;
   width: 100%;
+  max-width: 1200px;
+  margin: $unit * 4 auto;
+}
+
+.search-box {
+  padding: $unit $unit * 2;
+  border-radius: 20px;
+  border: solid 1px lightgrey;
+  width: 40%;
 }

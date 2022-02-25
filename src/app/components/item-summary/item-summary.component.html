@@ -1,10 +1,10 @@
-<div class="list-item">
+<div *ngIf="item" class="list-item">
   <div class="list-item__image-container">
     <img *ngIf="item.image" class="list-item__image" src="{{ item.image }}" />
   </div>
   <div class="list-item__content">
     <div class="list-item__header">
-      <div class="list-item__title">{{ item.title }}</div>
+      <div *ngIf="item.title" class="list-item__title">{{ item.title }}</div>
       <div *ngIf="item.price" class="list-item__price">
         {{ item.price }} EUR
       </div>
