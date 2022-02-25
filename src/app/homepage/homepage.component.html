@@ -10,9 +10,15 @@
       />
     </form>
 
-    <app-item-summary
-      *ngFor="let item of items$ | async"
-      [item]="item"
-    ></app-item-summary>
+    <ng-container *ngFor="let item of items$ | async; let i = index">
+      <app-item-summary
+        *ngIf="i < showItemsCount"
+        [item]="item"
+      ></app-item-summary>
+    </ng-container>
+
+    <button (click)="showMoreItems()" class="show-more-items-btn">
+      Show more
+    </button>
   </div>
 </div>

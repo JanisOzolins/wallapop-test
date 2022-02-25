@@ -1,5 +1,5 @@
 import { FILTER_ITEMS_BY_KEYWORD, GET_ITEMS_RESPONSE } from '../actions';
-import * as itemsReducer from '../reducer';
+import * as itemsReducer from '../items.reducer';
 import { itemsList } from './test-data';
 
 describe('ItemsReducer', () => {

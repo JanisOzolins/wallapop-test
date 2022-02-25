@@ -4,7 +4,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { MockStore, provideMockStore } from '@ngrx/store/testing';
 import { AppComponent } from './app.component';
 import { ItemsServiceService } from './services/items.service';
-import { initialState } from './store/reducer';
+import { initialState } from './store/items.reducer';
 
 describe('AppComponent', () => {
   let store: MockStore;

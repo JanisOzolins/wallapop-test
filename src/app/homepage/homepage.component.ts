@@ -18,6 +18,8 @@ export class HomepageComponent implements OnInit {
   public searchForm: FormGroup;
   public items$: Observable<Item[]>;
 
+  public showItemsCount = 5;
+
   constructor(private store: Store<AppState>) {
     this.searchForm = new FormGroup({
       searchBox: new FormControl(''),
@@ -38,4 +40,8 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  showMoreItems(): void {
+    this.showItemsCount += 5;
+  }
 }

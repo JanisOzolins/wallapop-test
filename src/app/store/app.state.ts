@@ -1,5 +1,5 @@
 import { Item } from '../models/item.interface';
-import { initialState } from './reducer';
+import { initialState } from './items.reducer';
 
 export interface AppState {
   items: ItemsState;

@@ -6,7 +6,6 @@
 
 .container {
   display: flex;
-  height: 100vh;
 }
 
 .list-items {
@@ -20,4 +19,17 @@
   border-radius: 20px;
   border: solid 1px lightgrey;
   width: 40%;
+}
+
+.show-more-items-btn {
+  display: block;
+  width: 40%;
+  padding: $unit $unit * 2;
+  border-radius: 20px;
+  background: $aquablue;
+  margin: 0 auto;
+  color: $white;
+  border: none;
+  font-size: 15px;
+  margin-bottom: $unit * 4;
 }
