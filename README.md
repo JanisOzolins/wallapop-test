@@ -1,27 +1,27 @@
 # WallapopTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.3.
+## What is this about
 
-## Development server
+The purpose of this test is to know your ability to create a modern and functional single page application.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## How to use?
 
-## Code scaffolding
+Run `npm install` followed by `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## App requirements
 
-## Build
+As a user I want to have access to an Item Manager where I can search items given the following criteria:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Title
+- Description
+- Price
+- Email
 
-## Running unit tests
+Each item will have these fields and a picture.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+When I perform a search that has results, I’d like to view a list of the items showing all the information. The app must provide me the ability to sort the listed items by title, description, price or email.
 
-## Running end-to-end tests
+Also, I want to be able to have a favourite items list, so I must be able to select the items from the list and save them on my favourite list. The list should be displayed on a modal containing all those items showing only the picture and the title. The modal should be opened by clicking on a button displayed in some place on the page where it’s easily accessible.
+In the favourite modal, I want to be able to search by title and the possibility to remove the items from the favourite list without having to close the modal. I don’t want the favorite items to be preserved when I refresh the page.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+The data that holds the items contains 20 items. The 20 items should NOT be displayed all at once. I’d like to see 5 items each time (with an initial load of 5 when the page is loaded), so some pagination method should be implemented to view the remaining items (clicking a button, with endless scroll...it’s up to you).
