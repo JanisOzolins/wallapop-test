@@ -6,6 +6,7 @@ describe('selectors', () => {
   const initialState: AppState = {
     items: {
       items: itemsList,
+      favouriteItems: [],
       searchTerm: null,
       sortOrder: 'title-asc',
     },

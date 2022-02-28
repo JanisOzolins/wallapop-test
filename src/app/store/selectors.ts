@@ -13,6 +13,13 @@ export const selectItems = createSelector(selectItemsState, (state) => {
   return state.items;
 });
 
+export const selectFavouriteItems = createSelector(
+  selectItemsState,
+  (state) => {
+    return state.favouriteItems;
+  }
+);
+
 export const selectFilteredItems: MemoizedSelector<AppState, Item[]> =
   createSelector(selectItemsState, (state) => {
     let filteredItems = state.items;

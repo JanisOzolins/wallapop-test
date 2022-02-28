@@ -7,6 +7,7 @@ export interface AppState {
 
 export interface ItemsState {
   items: Array<Item>;
+  favouriteItems: Array<Item>;
   searchTerm: string;
   sortOrder: string;
 }

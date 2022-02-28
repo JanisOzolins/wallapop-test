@@ -12,6 +12,7 @@
   width: 100%;
   max-width: 1200px;
   margin: $unit * 4 auto;
+  padding: 0 $unit * 2;
 }
 
 .search-box {
@@ -19,6 +20,14 @@
   border-radius: 20px;
   border: solid 1px lightgrey;
   width: 40%;
+}
+
+.sort-by-dropdown {
+  padding: $unit $unit * 2;
+  border-radius: 20px;
+  border: solid 1px lightgrey;
+  margin-left: 16px;
+  color: #767676;
 }
 
 .show-more-items-btn {

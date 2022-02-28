@@ -1,6 +1,9 @@
 @import "/src/app/shared/styles/variables";
 
 .app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   background-color: $aquablue;
   height: 64px;
 
@@ -8,5 +11,20 @@
     fill: $white;
     height: 32px;
     padding: $unit * 2;
+  }
+
+  &__favourites {
+    display: inline-flex;
+    padding: 8px 16px;
+    background: none;
+    border: none;
+    color: $lightgrey;
+    font-weight: bold;
+    font-size: 26px;
+
+    &:hover {
+      color: $white;
+      cursor: pointer;
+    }
   }
 }

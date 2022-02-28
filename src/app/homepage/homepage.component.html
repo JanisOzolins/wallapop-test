@@ -9,7 +9,7 @@
         class="search-box"
       />
 
-      <select formControlName="sortBy">
+      <select formControlName="sortBy" class="sort-by-dropdown">
         <option [ngValue]="'title-asc'">Title (A-Z)</option>
         <option [ngValue]="'title-desc'">Title (Z-A)</option>
         <option [ngValue]="'description-asc'">Description (A-Z)</option>
@@ -25,6 +25,7 @@
       <app-item-summary
         *ngIf="i < showItemsCount"
         [item]="item"
+        (savedToFavourites)="saveToFavourites($event)"
       ></app-item-summary>
     </ng-container>
 

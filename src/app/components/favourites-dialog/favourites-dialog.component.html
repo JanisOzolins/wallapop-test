@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Your favourites</h1>
+<div
+  mat-dialog-content
+  *ngIf="(favouriteItems$ | async).length; else noFavourites"
+>
+  <ng-container *ngFor="let item of favouriteItems$ | async">
+    <app-favourites-list-item
+      [item]="item"
+      (removedFromFavourites)="removeFromFavourites($event)"
+    ></app-favourites-list-item>
+  </ng-container>
+</div>
+
+<ng-template #noFavourites>
+  You haven't saved any items to your favourites yet.
+</ng-template>

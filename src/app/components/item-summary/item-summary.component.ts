@@ -1,5 +1,6 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Item } from 'src/app/models/item.interface';
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-item-summary',
@@ -8,8 +9,15 @@ import { Item } from 'src/app/models/item.interface';
 })
 export class ItemSummaryComponent implements OnInit {
   @Input() item: Item;
+  @Output() savedToFavourites: EventEmitter<Item> = new EventEmitter<Item>();
+
+  public faHeart = faHeart;
 
   constructor() {}
 
   ngOnInit() {}
+
+  saveToFavourites(item: Item): void {
+    this.savedToFavourites.emit(item);
+  }
 }

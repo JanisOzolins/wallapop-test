@@ -5,7 +5,11 @@ import { debounceTime, distinctUntilChanged, Observable } from 'rxjs';
 import { AppState } from '../store/app.state';
 import { Store } from '@ngrx/store';
 import { Item } from '../models/item.interface';
-import { filterItemsByKeywordAction, setSortOrder } from '../store/actions';
+import {
+  addItemToFavouritesAction,
+  filterItemsByKeywordAction,
+  setSortOrder,
+} from '../store/actions';
 import { selectFilteredItems, selectItems } from '../store/selectors';
 
 @Component({
@@ -48,5 +52,9 @@ export class HomepageComponent implements OnInit {
 
   showMoreItems(): void {
     this.showItemsCount += 5;
+  }
+
+  saveToFavourites(item: Item): void {
+    this.store.dispatch(addItemToFavouritesAction({ itemToAdd: item }));
   }
 }

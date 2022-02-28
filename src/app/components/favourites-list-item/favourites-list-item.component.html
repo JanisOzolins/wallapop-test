@@ -1,0 +1,10 @@
+<div *ngIf="item" class="list-item">
+  <div class="list-item__image-container">
+    <img *ngIf="item.image" class="list-item__image" src="{{ item.image }}" />
+  </div>
+  <div *ngIf="item.title" class="list-item__title">{{ item.title }}</div>
+
+  <button class="remove-favourite-btn" (click)="removeFromFavourites(item)">
+    <fa-icon [icon]="faTrash"></fa-icon>
+  </button>
+</div>
