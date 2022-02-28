@@ -13,8 +13,6 @@ export class AppEffects {
       mergeMap(() =>
         this.itemsService.getItems().pipe(
           map((items) => {
-            console.log(items);
-
             return getItemsResponseAction({ items });
           }),
           catchError(() => EMPTY)

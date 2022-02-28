@@ -39,7 +39,6 @@ export const selectFilteredItems: MemoizedSelector<AppState, Item[]> =
       );
     }
 
-    console.log(sortOrder);
     const sortedItem = sortItems(filteredItems, sortOrder);
     return sortedItem;
   });
